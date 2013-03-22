@@ -14,6 +14,7 @@ DependencyDetection.defer do
 
   executes do
     ::Sinatra::Base.class_eval do
+      include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
       include NewRelic::Agent::Instrumentation::Sinatra
       alias dispatch_without_newrelic dispatch!
       alias dispatch! dispatch_with_newrelic
@@ -33,8 +34,6 @@ module NewRelic
       # to match them.  HTTP operations are not distinguished.  Multiple matches
       # will all be tracked as separate actions.
       module Sinatra
-        include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
-
         def dispatch_with_newrelic
           txn_name = NewRelic.transaction_name(self.class.routes, @request) do |pattern, keys, conditions|
             process_route(pattern, keys, conditions) do
