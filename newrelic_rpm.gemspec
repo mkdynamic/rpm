@@ -1,9 +1,9 @@
 #-*- coding: utf-8 -*-
-# GITSHA: dd3a97777aa1d758114c3488019e6f68bb39aeef
+# GITSHA: 9a4373eacf7a1b30c787a25b10fc3d3d0f35b754
 
 Gem::Specification.new do |s|
   s.name = "newrelic_rpm"
-  s.version = "3.5.5.8.x1"
+  s.version = "3.5.5.38.x1"
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = [ "Jason Clark", "Sam Goldstein", "Jon Guymon", "Ben Weintraub" ]
   s.date = "2013-03-21"
@@ -161,6 +161,7 @@ EOS
     "lib/tasks/install.rake",
     "lib/tasks/tests.rake",
     "newrelic.yml",
+    "newrelic_rpm.gemspec",
     "newrelic_rpm.gemspec.erb",
     "recipes/newrelic.rb",
     "test/active_record_fixtures.rb",
